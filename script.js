@@ -26,19 +26,9 @@ newBookForm.addEventListener('submit', ()=>{
     newBookForm.reset();
 });
 
-addBookToLibrary('Fake Book1', 'Fake Author', 200, 'unread');
-addBookToLibrary('Fake Book2', 'Fake Author', 200, 'unread');
-addBookToLibrary('Fake Book3', 'Fake Author', 200, 'unread');
-addBookToLibrary('Fake Book4', 'Fake Author', 200, 'unread');
-addBookToLibrary('Fake Book5', 'Fake Author', 200, 'unread');
-addBookToLibrary('Fake Book6', 'Fake Author', 200, 'unread');
+addBookToLibrary('Sample Book 1', 'Author 1', 200, 'unread');
 
-addBookToLibrary('Fake Read Book7', 'Fake Author', 200, 'read');
-addBookToLibrary('Fake Read Book8', 'Fake Author', 200, 'read');
-addBookToLibrary('Fake Read Book9', 'Fake Author', 200, 'read');
-addBookToLibrary('Fake Read Book10', 'Fake Author', 200, 'read');
-addBookToLibrary('Fake Read Book11', 'Fake Author', 200, 'read');
-addBookToLibrary('Fake Read Book12', 'Fake Author', 200, 'read');
+addBookToLibrary('Sample Book 2', 'Author 2', 200, 'read');
 
 
 myLibrary.forEach(displayBook);
@@ -73,6 +63,15 @@ function displayBook(newBook) {
     pages.setAttribute('class','pages');
     pages.textContent = newBook.pages + ' pages';
     newBookCard.appendChild(pages);
+
+    const readStatusButton = document.createElement('button');
+    readStatusButton.textContent = (newBook.readStatus === 'read') ? 'unread' : 'read';
+    readStatusButton.addEventListener('click', (event)=>{
+        event.target.parentElement.remove();
+        newBook.readStatus = (newBook.readStatus === 'read') ? 'unread' : 'read';
+        displayBook(newBook);
+    });
+    newBookCard.appendChild(readStatusButton);
 
     const deleteElement = document.createElement('button');
     deleteElement.textContent = 'Delete';

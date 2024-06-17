@@ -26,7 +26,7 @@ h2 {
 }
 
 .card button {
-    margin-top: 8px;
+    margin: 8px 4px 0;
 }
 
 #unread-container .card {
