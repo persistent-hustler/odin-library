@@ -74,6 +74,14 @@ function displayBook(newBook) {
     pages.textContent = newBook.pages + ' pages';
     newBookCard.appendChild(pages);
 
+    const deleteElement = document.createElement('button');
+    deleteElement.textContent = 'Delete';
+    deleteElement.addEventListener('click', function(event) {
+        delete myLibrary[newBook.index];
+        event.target.parentElement.remove();
+    });
+    newBookCard.appendChild(deleteElement);
+
     newBookCard.setAttribute('class', 'card');
     if (newBook.readStatus === 'read') {
         readContainer.appendChild(newBookCard);
