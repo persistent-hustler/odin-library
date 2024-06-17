@@ -2,39 +2,87 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 0 24px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-h2 {
-    text-align: center;
+hr {
+    border: 1px solid rgb(63, 62, 62);
+    box-shadow: 0 4px 4px black;
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: rgb(63, 62, 62);
+}
+
+body {
+    padding: 0 24px;
+    /* background-color: #3DC2EC; */
+    background-image: linear-gradient(to bottom right, #3DC2EC, #c0e2ec);
+    min-height: 100vh;
+}
+
+#newBookDialogOpener {
+    padding: 8px 24px;
+    border-radius: 20px;
+    background-color: #604CC3;
+    color: white;
+    font-size: 16px;
+    height: fit-content;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, 240px);
     gap: 40px;
     justify-content: start;
 }
 
 .card {
     border: 2px solid black;
+    border-radius: 4px;
     padding: 8px;
     text-align: center;
     overflow-wrap: break-word;
     hyphens: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 5px black;
+}
+
+.card .pages {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.card .buttonsContainer {
+    position: relative;
+    top: 40px;
 }
 
 .card button {
     margin: 8px 4px 0;
+    /* background-color: #604CC3; */
+    background-image: linear-gradient(#604CC3, #7e71c1);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
 }
 
 #unread-container .card {
-    background-color: white;
+    background-color: antiquewhite;
 }
 
 #read-container .card {
-    background-color: rgb(221, 221, 221);
+    color: white;
+    background-color: gray;
 }
 
 .title {
@@ -42,18 +90,30 @@ h2 {
     font-weight: bold;
 }
 
-form {
-    background-color: rgb(220, 220, 220);
-    border: 2px solid black;
+dialog{
+    padding: 0;
     border-radius: 5px;
+    box-shadow: 0px 0px 8px rgb(63, 62, 62);
+}
+
+dialog::backdrop{
+    background: rgba(0, 0, 0, 0.4);
+}
+
+form {
+    background-color: #7e71c1;
+    color: white;
     display: flex;
     flex-direction: column;
-    padding: 12px 20px;
-    width: 320px;
+    justify-content: center;
+    padding: 20px 32px;
+    width: 360px;
 }
 
 form h2 {
     margin: 0 0 12px;
+    text-align: center;
+    color: white;
 }
 
 label{
@@ -81,4 +141,9 @@ form .buttons {
 
 form button {
     padding: 2px 8px;
+    background-color: #3DC2EC;
+    border: none;
+    color: rgb(63, 62, 62);
+    padding: 4px 12px;
+    border-radius: 4px;
 }

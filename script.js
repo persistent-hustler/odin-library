@@ -27,8 +27,10 @@ newBookForm.addEventListener('submit', ()=>{
 });
 
 addBookToLibrary('Sample Book 1', 'Author 1', 200, 'unread');
+addBookToLibrary('Sample Book 2', 'Author 2', 200, 'unread');
 
-addBookToLibrary('Sample Book 2', 'Author 2', 200, 'read');
+addBookToLibrary('Sample Book 3', 'Author 3', 200, 'read');
+addBookToLibrary('Sample Book 4', 'Author 4', 200, 'read');
 
 
 myLibrary.forEach(displayBook);
@@ -64,22 +66,26 @@ function displayBook(newBook) {
     pages.textContent = newBook.pages + ' pages';
     newBookCard.appendChild(pages);
 
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.setAttribute('class', 'buttonsContainer')
+    newBookCard.appendChild(buttonsContainer);
+
     const readStatusButton = document.createElement('button');
     readStatusButton.textContent = (newBook.readStatus === 'read') ? 'unread' : 'read';
     readStatusButton.addEventListener('click', (event)=>{
-        event.target.parentElement.remove();
+        event.target.parentElement.parentElement.remove();
         newBook.readStatus = (newBook.readStatus === 'read') ? 'unread' : 'read';
         displayBook(newBook);
     });
-    newBookCard.appendChild(readStatusButton);
+    buttonsContainer.appendChild(readStatusButton);
 
     const deleteElement = document.createElement('button');
     deleteElement.textContent = 'Delete';
     deleteElement.addEventListener('click', function(event) {
         delete myLibrary[newBook.index];
-        event.target.parentElement.remove();
+        event.target.parentElement.parentElement.remove();
     });
-    newBookCard.appendChild(deleteElement);
+    buttonsContainer.appendChild(deleteElement);
 
     newBookCard.setAttribute('class', 'card');
     if (newBook.readStatus === 'read') {
