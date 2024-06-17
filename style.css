@@ -1,0 +1,29 @@
+h2 {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(200px));
+    gap: 40px;
+    justify-content: start;
+}
+
+.card {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+#unread .card {
+    background-color: white;
+}
+
+#read .card {
+    background-color: rgb(221, 221, 221);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
