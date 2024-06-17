@@ -1,10 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 24px;
+}
+
 h2 {
     text-align: center;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, min(200px));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 40px;
     justify-content: start;
 }
@@ -13,17 +21,64 @@ h2 {
     border: 2px solid black;
     padding: 8px;
     text-align: center;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
-#unread .card {
+.card button {
+    margin-top: 8px;
+}
+
+#unread-container .card {
     background-color: white;
 }
 
-#read .card {
+#read-container .card {
     background-color: rgb(221, 221, 221);
 }
 
 .title {
     font-size: 24px;
     font-weight: bold;
+}
+
+form {
+    background-color: rgb(220, 220, 220);
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 20px;
+    width: 320px;
+}
+
+form h2 {
+    margin: 0 0 12px;
+}
+
+label{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.readStatus {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.readStatus label{
+    font-weight: normal;
+}
+
+form .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+form button {
+    padding: 2px 8px;
 }

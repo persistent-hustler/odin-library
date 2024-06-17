@@ -8,11 +8,41 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h2>Unread</h2>
-    <div class="container" id="unread">
+    <div class="header">
+        <h1>My Library</h1>
+        <button id="newBookDialogOpener">New Book</button>
     </div>
-    <h2>Read</h2>
-    <div class="container" id="read">
+    <dialog id="addBookDialog">
+        <form method="dialog">
+            <h2>Add book</h2>
+            <label for="title"> Title
+                <input type="text" name="title" id="title" required>
+            </label>
+            <label for="author"> Author
+                <input type="text" name="author" id="author" required>
+            </label>
+            <label for="pages">Number of pages
+                <input type="number" name="pages" id="pages" required>
+            </label>
+            <div class="readStatus">
+                <label for="unread">
+                    <input type="radio" name="readStatus" id="unread" value="unread" checked> Unread
+                </label>
+                <label for="read">
+                    <input type="radio" name="readStatus" id="read" value="read"> Read
+                </label>
+            </div>
+            <div class="buttons">
+                <button id="cancel" type="reset">Cancel</button>
+                <button type="submit" id="addBookButton">Add Book</button>
+            </div>
+        </form>
+    </dialog>
+    <h2>Unread Books</h2>
+    <div class="container" id="unread-container">
+    </div>
+    <h2>Read Books</h2>
+    <div class="container" id="read-container">
     </div>
 </body>
 </html>
