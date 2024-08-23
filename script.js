@@ -15,13 +15,23 @@ cancelDialog.addEventListener('click', (event)=>{
     addBookDialog.close();
 });
 
+class Book {
+    constructor(title, author, pages, readStatus, index) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+        this.index = index;
+    }
+}
+
 newBookForm.addEventListener('submit', ()=>{
     let title = document.querySelector('#title').value;
     let author= document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
     let readStatus = document.querySelector('input[name="readStatus"]:checked').value;
     let book = new Book(title, author, pages, readStatus, myLibrary.length);
-    addBookToLibrary(title, author, pages, read);
+    addBookToLibrary(title, author, pages, readStatus);
     displayBook(book);
     newBookForm.reset();
 });
@@ -34,14 +44,6 @@ addBookToLibrary('Sample Book 4', 'Author 4', 200, 'read');
 
 
 myLibrary.forEach(displayBook);
-
-function Book(title, author, pages, readStatus, index) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readStatus = readStatus;
-    this.index = index;
-}
 
 function addBookToLibrary(title, author, pages, readStatus) {
     const book = new Book(title, author, pages, readStatus, myLibrary.length);
