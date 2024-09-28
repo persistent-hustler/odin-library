@@ -16,14 +16,14 @@
     <dialog id="addBookDialog">
         <form method="dialog">
             <h2>Add Book</h2>
-            <label for="title"> Title
-                <input type="text" name="title" id="title" required>
+            <label for="title"> Title <span aria-label="required">*</span>
+                <input type="text" name="title" id="title" required minlength="3">
             </label>
-            <label for="author"> Author
-                <input type="text" name="author" id="author" required>
+            <label for="author"> Author <span aria-label="required">*</span>
+                <input type="text" name="author" id="author" required minlength="3">
             </label>
-            <label for="pages">Number of pages
-                <input type="number" name="pages" id="pages" required>
+            <label for="pages">Number of pages <span aria-label="required">*</span>
+                <input type="number" name="pages" id="pages" required min="10">
             </label>
             <div class="readStatus">
                 <label for="unread">

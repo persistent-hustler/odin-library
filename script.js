@@ -96,3 +96,40 @@ function displayBook(newBook) {
         unreadContainer.appendChild(newBookCard);
     }
 }
+
+const titleInput = document.getElementById('title');
+titleInput.addEventListener('input', function() {
+    validateMinLength(this, 3, 'Title');
+});
+
+const authorInput = document.getElementById('author');
+authorInput.addEventListener('input', function() {
+    validateMinLength(this, 3, 'Author');
+});
+
+const pagesInput = document.getElementById('pages');
+pagesInput.addEventListener('input', ()=>{
+    if(pagesInput.value <= 0) {
+        pagesInput.setCustomValidity('Email me. How is this less than or equal to 0?');
+        pagesInput.reportValidity();
+        return false;
+    } else if (pagesInput.value < 10) {
+        pagesInput.setCustomValidity('Book, not booklet. Minimum 10 pages');
+        pagesInput.reportValidity();
+        return false;
+    } else {
+        pagesInput.setCustomValidity('');
+        return true;
+    }
+});
+
+function validateMinLength(inputField, minLength, fieldName) {
+    if(inputField.value.length < minLength) {
+        inputField.setCustomValidity(`${fieldName} should be ${minLength} or more characters`);
+        inputField.reportValidity();
+        return false;
+    } else {
+        inputField.setCustomValidity('');
+        return true;
+    }
+}
